@@ -35,7 +35,11 @@ Run Uvicorn server
 uvicorn app.main:app --reload
 ```
 
-Visit [http://localhost:8000/?data=true]() and tweak the parameter `data`.
+Test using Postman or cURL by tweaking the `data` query parameter:
+
+```sh
+curl --location --request PUT 'http://localhost:8000?data=true'
+```
 
 Run Tests
 ---------
