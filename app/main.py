@@ -1,9 +1,9 @@
 from fastapi import Depends, FastAPI, Query
-from app.services.myservice_impl import MyServiceImpl
+from app.deps import myservice_with_memory_dataport
 
 app = FastAPI(title="Hexagonal")
 
 
 @app.put("/")
-def save_data(data=Query(), service=Depends(MyServiceImpl)) -> bool:
-    return service.save(data)
+async def save_data(data=Query(), service=Depends(myservice_with_memory_dataport)) -> bool:
+    return await service.save(data)

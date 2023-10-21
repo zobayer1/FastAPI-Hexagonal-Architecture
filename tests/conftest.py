@@ -6,7 +6,7 @@ from app.services.ports.myservice import MyService
 
 
 class TestDataPort(MyDataPort):
-    def save(self, data: str) -> bool:
+    async def save(self, data: str) -> bool:
         return data == "true"
 
 
